@@ -24,9 +24,9 @@ pipeline {
     }  
     
             
-    stage('Test') {
+    stage('reporting') {
       steps {
-        sh 'node test'
+          junit testResults: 'target/surefire-reports/*.xml'
       }
     }
   }
