@@ -1,8 +1,14 @@
 pipeline {
-  agent {
-
+  agent { label 'JDK8'}
+  options {
+      timeout( time:1, unit:'HOURS')
+      retry(2)
   }
-    stages {
+  triggers{
+      cron ( '0 * * * *')
+  }
+
+   stages {
         
     stage('Git') {
       steps {
